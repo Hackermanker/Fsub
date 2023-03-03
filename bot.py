@@ -46,7 +46,7 @@ def _onUnMuteRequest(client, lel):
       else:
         client.answer_callback_query(lel.id, text="❗ ❗ മുന്നറിയിപ്പ്: നിങ്ങൾക്ക് സ്വതന്ത്രമായി സംസാരിക്കാൻ കഴിയുമെങ്കിൽ ബട്ടൺ ക്ലിക്കുചെയ്യരുത്.", show_alert=True)
 
-@Jebot.on_message(filters.text & ~filters.private & ~filters.edited, group=1)
+@Jebot.on_message(filters.text & ~filters.private & ~on_edited_message, group=1)
 def _check_member(client, message):
   chat_id = message.chat.id
   chat_u = Config.CHANNEL_USERNAME #channel for force sub
